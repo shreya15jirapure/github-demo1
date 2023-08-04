@@ -1,0 +1,193 @@
+<div class="kt-grid kt-grid--hor kt-grid--root kt-login kt-login--v1 pr-login-body" id="kt_login">
+	<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile pr-grid-login-body">
+		<!--begin::Aside-->
+		<div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor pr-login-left hide-mobile" >			
+			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+				<div class="kt-grid__item text-center">
+					<!-- <h2 class="text-white">FAQ about login for First time user</h2>
+					<h1 class="kt-font-success">Trouble loggin in? </h1> -->
+					<div id="caro-login" class="carousel slide caro-login" data-ride="carousel" data-interval="3000">
+						
+						<div class="text-white" style="padding-top: 70px !important;">
+						  <div class="carousel-item active text-center">
+							<img class="center" src="https://esopezee.com/wp-content/uploads/2021/01/miniature-businessman-handshake-with-coins-stack-world-map-investment-business-concept.png" alt="image" class="img-responsive w-75">
+							<ul class="caro-login-ul px-10">
+								<li class="h3 text-green">
+									Many companies are giving ESOPs, should I also be doing it? 
+								</li>
+								<li class="text-white pt-4 text-justify font-12">
+									This is one of the factors, peer pressure, that influence the decision. However, the more important drivers are willingness to dilute shareholding, readiness to sustain the Plan over a long run, possibility of providing liquidity to the shares, do the employees see same value in becoming shareholder as the other shareholders. 
+								</li>
+							</ul>
+						  </div>
+						  <div class="carousel-item text-center">
+							<img src="https://esopezee.com/wp-content/uploads/2021/01/calculator-labeled-invest-lies-financial-documents-office.png" alt="image" class="img-responsive w-75">
+							<ul class="caro-login-ul px-10">
+								<li class="h3 text-green">ESOPs: Is this the right time? 
+								</li>
+								<li class="text-white pt-4 text-justify font-12">
+									ESOPs can be implemented anytime whether you are a startup or a growth stage or a steady state, established company. It is ideal to time the roll out prior to some major Capital raising events such placement of Equity with a PE/ VC or strategic investor or before the IPO- before a market driven price discovery happens. In the absence of such events, ESOPs can also be rolled out when there is some visibility of providing liquidity to employees.
+								</li>	
+							</ul>
+						  </div>
+						  <div class="carousel-item text-center">
+							<img src="https://esopezee.com/wp-content/uploads/2021/01/businessman-using-tablet-analyzing-sales-data-economic-growth-graph-chart.png" alt="image" class="img-responsive w-75">
+							<ul class="caro-login-ul px-10">
+								<li class="h3 text-green">ESOPs: What are the pros and cons?
+								</li>
+								<li class="text-white pt-4 text-justify font-12">
+									Some of the visible advantages of implementing ESOPs are retention, performance linked rewards, (usually) market pays for the gains and not the company, facilitates shared vision as shareholders. ESOPs however, can work to the disadvantage, if not implemented professionally, seen to be subjective and not objective, lack of transparency.
+								</li>
+							</ul>
+						  </div>
+						</div>
+					  </div>				
+				</div>
+			</div>
+            
+			<div class="kt-grid__item text-center" style="padding: 30px !important;">
+				<!-- <a href="javascript:;window.open('https://help-staging.esopdirect.com/article-categories/login/')" class="help-btn">
+					<span><i class="fas fa-question"></i></span>
+					<em>Help</em>
+				</a> -->
+				<a href="javascript:;window.open('https://www.esopdirect.com/')" class="text-green">MyESOPs</a>
+				<!-- <a href="javascript:;window.open('https://esopezee.com/knowledge-bank/newsletter/')" class="text-green ml-5">ESOP Newsletter</a> -->
+			</div>
+		</div>
+		<!--begin::Aside-->
+
+		<!--begin::Content-->
+		<div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1 kt-login__wrapper pr-login-right" style="position: relative;">
+			<a href="javascript:;" class="kt-login__logo pr-login__logo  text-center d-block">
+				<img src="{{ASSETS_FOLDER}}/images/logo.png" alt="MyESOPs">
+			</a>
+			<!--begin::Body-->
+			<div class="kt-login__body pr-login__body" perfectScrollbar [ngStyle]="{'max-height': '300px', 'position': 'relative'}">
+			<!-- login2 -->
+			<div class="kt-login__form pr-login1">
+				<div class="pr-login-title text-center">
+					<h3>The OTP will be sent to your registered email Id. Please check your email.</h3>
+				</div>
+				<form >
+                    <div class="form-group form-group-password">
+                        <input type="password" class="form-control password-txt" [(ngModel)]="emailOTP" name="emailOTP" placeholder="Enter OTP" autocomplete="off" autofocus="autofocus">
+                        <a href="javascript:;" class="btn-pass-hide" tabindex="-1">
+                            <i class="la la-eye"></i>
+                        </a>
+                        <a href="javascript:;" class="btn-pass-view" tabindex="-1">
+                            <i class="la la-eye-slash"></i>
+                        </a>
+                    </div>
+                    <div class="form-group text-center">
+                        <span *ngIf="!showTimer">Didn't receive OTP? Click here to <a (click)="GenerateOTPAndSendEmail()" class="btn-link" style="cursor:pointer"> resend OTP</a></span>
+                        <!-- <span *ngIf="showTimer">OTP sent on registered email Id. </span>
+                        <span *ngIf="showTimer"><countdown  [config]="{leftTime: countTimer, format: 'mm:ss' }" style="color: #3246d3; font-weight: bold;"></countdown>
+                        </span> -->
+                        <!-- <span *ngIf="showTimer">You must wait for  </span>
+                        <span *ngIf="showTimer"><countdown [config]="{leftTime: countTimer, format: 'mm:ss' }" style="color: #3246d3; font-weight: bold;"></countdown>
+                        </span>
+                        <span *ngIf="showTimer"> to resend OTP. </span> -->
+                        <span *ngIf="showTimer">To resend OTP, you must wait for </span>
+                        <span *ngIf="showTimer"><countdown [config]="{leftTime: countTimer, format: 'mm:ss' }" style="color: #3246d3; font-weight: bold;"></countdown>
+                        </span>
+                    </div>
+                    <!-- <div *ngIf="showTimer" class="form-group text-center">
+                        <span *ngIf="showTimer">OTP sent on registered email Id. </span>
+                        <span *ngIf="showTimer"><countdown  [config]="{leftTime: countTimer, format: 'mm:ss' }"></countdown>
+                        </span>
+                    </div> -->
+                    <div class="text-center" style="margin-bottom: 20px; margin-top: 10px;">
+                        <button data-target="#caro-login3" data-slide="next"
+                            class="btn btn-outline-primary2"  style="margin-right: 20px;" (click)="backToLogin()" >Back to Login</button>
+                        <button data-target="#caro-login3" data-slide="next"
+                            class="btn btn-primary" (click)="validateOTPByEmailID()">Submit</button>
+                    </div>
+                </form>
+                
+               
+				
+			</div>
+			</div>
+			
+			<div class="page-loader-api" style="display: none;">
+				<div class="page-loading-api">
+					<!-- <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> -->
+					<i>
+						<svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+							<path fill="#3246d3" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+						  c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+								<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50"
+									to="360 50 50" repeatCount="indefinite" />
+							</path>
+							<path fill="#3246d3" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+						  c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+								<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="0.5s" from="0 50 50"
+									to="-360 50 50" repeatCount="indefinite" />
+							</path>
+							<path fill="#3246d3" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+						  L82,35.7z">
+								<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50"
+									to="360 50 50" repeatCount="indefinite" />
+							</path>
+						</svg>
+					</i>
+				</div>
+			</div>
+		</div>
+		<!--end::Content-->
+	</div>
+</div>
+
+<!--end::Body-->
+
+
+<!-- Alert Pop Up -->
+<!-- Alert-modal -->
+<div class="modal fade pr-modal" id="alert-modal" data-backdrop="static" data-keyboard="false" [ngStyle]="{'display': alertPopUpIsOpen ? 'block' : 'none', 'opacity': 1}">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>Alert</h3>
+				<p class="p2 pr-color-base">{{alertMessage}}</p>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" (click) = "openAlert(false)">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form class="mw400">
+					<div class="modal-footer text-center">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "openAlert(false)">OK</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+  </div>
+<div class="page-loader-api" style="display: none;">
+	<div class="page-loading-api">
+		<!-- <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> -->
+		<i>
+			<svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+				<path fill="#3246d3" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+			  c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+					<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50"
+						to="360 50 50" repeatCount="indefinite" />
+				</path>
+				<path fill="#3246d3" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+			  c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+					<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="0.5s" from="0 50 50"
+						to="-360 50 50" repeatCount="indefinite" />
+				</path>
+				<path fill="#3246d3" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+			  L82,35.7z">
+					<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50"
+						to="360 50 50" repeatCount="indefinite" />
+				</path>
+			</svg>
+		</i>
+	</div>
+</div>
+
+  <div *ngIf="alertPopUpIsOpen" class="modal-backdrop fade show"> </div>
